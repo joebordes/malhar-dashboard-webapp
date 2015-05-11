@@ -21,6 +21,7 @@
     "angular-pines-notify": "~0.1",
     "pines-notify": "~1.3",
     "angular-ui-sortable": "0.12.5",
+    "coreboswsapijs": "*",
     "malhar-angular-widgets": "https://github.com/DataTorrent/malhar-angular-widgets.git#master",
     "malhar-angular-dashboard": "https://github.com/DataTorrent/malhar-angular-dashboard.git#master"
   },

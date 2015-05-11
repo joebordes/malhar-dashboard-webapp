@@ -25,7 +25,9 @@ angular.module('app', [
     'nvd3ChartDirectives',
     'ui.dashboard',
     'ui.widgets',
-    'ui.models'
+    'ui.models',
+    'angular-md5',
+    'coreBOSAPIservice'
   ])
   .constant('settings', window.settings)
   .config(function ($routeProvider, webSocketProvider, settings) {
@@ -73,4 +75,10 @@ angular.module('app', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function (coreBOSAPIStatus, coreBOSWSAPI) {
+    //coreBOSWSAPI.setcoreBOSUser('your corebBOS user');
+    //coreBOSWSAPI.setcoreBOSKey('your coreBOS Access key');
+    coreBOSWSAPI.setURL('http://localhost/coreBOSwork');
+    coreBOSWSAPI.doLogin('admin','Lvx494dom78vMTjS').then(function() {});
   });

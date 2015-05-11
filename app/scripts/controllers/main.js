@@ -10,6 +10,12 @@ angular.module('app')
         }
       },
       {
+        name: 'mywidget',
+        style: {
+          width: '33%'
+        }
+      },
+      {
         name: 'wt-random',
         style: {
           width: '33%'
