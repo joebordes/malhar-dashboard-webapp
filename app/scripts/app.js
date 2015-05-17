@@ -26,6 +26,7 @@ angular.module('app', [
     'ui.dashboard',
     'ui.widgets',
     'ui.models',
+    'angularGrid',
     'angular-md5',
     'coreBOSAPIservice'
   ])
@@ -79,6 +80,6 @@ angular.module('app', [
   .run(function (coreBOSAPIStatus, coreBOSWSAPI) {
     //coreBOSWSAPI.setcoreBOSUser('your corebBOS user');
     //coreBOSWSAPI.setcoreBOSKey('your coreBOS Access key');
-    coreBOSWSAPI.setURL('http://localhost/coreBOSwork');
-    coreBOSWSAPI.doLogin('admin','Lvx494dom78vMTjS').then(function() {});
+    coreBOSWSAPI.setURL('http://localhost/coreboswork');
+    coreBOSWSAPI.doLogin('admin','Y0M0WppcYVUz3P').then(function() {});
   });
