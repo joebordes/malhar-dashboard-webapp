@@ -1,0 +1,13 @@
+{
+	"AppName": "Potentials Control",
+	"AppURL": "http://corebos.org/",
+	"Description": "Description",
+	"Logout": "Logout",
+	"Login": "Login",
+	"coreBOS User": "coreBOS User",
+	"coreBOS Access URL": "coreBOS Access URL",
+	"coreBOS Access Key": "coreBOS Access Key",
+	"coreBOSKeyNotSet": "coreBOS Keys are not set! You must set these here or in the setup.js file to be able to use the application. You can find your keys in the preferences section of the application",
+	"coreBOSAPIInvalidKeys": "coreBOS API Keys seem to be invalid as we are receiving a Not Authorized error response. Please review your values and make sure they are correct. You can find your keys in the preferences section of the application",
+	"NotOnline": "Offline! There is currently no connection with the central application."
+}

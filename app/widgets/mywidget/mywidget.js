@@ -11,8 +11,8 @@ function(coreBOSAPIStatus, coreBOSWSAPI) {
 			function update() {
 				var sc = scope;
 				scope.time = new Date().toLocaleTimeString();
-				coreBOSWSAPI.setURL('http://localhost/coreboswork');
-				coreBOSWSAPI.doLogin('admin', 'Y0M0WppcYVUz3P').then(function() {
+				coreBOSWSAPI.setURL('http://localhost/coreBOSwork');
+				coreBOSWSAPI.doLogin('admin', 'Lvx494dom78vMTjS').then(function() {
 					coreBOSWSAPI.doQuery('select account_no,accountname from accounts limit 0,5').then(function(response) {
 						console.log(response, response.data.result.length);
 						var cols = [

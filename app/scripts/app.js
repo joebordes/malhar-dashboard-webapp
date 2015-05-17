@@ -28,13 +28,18 @@ angular.module('app', [
     'ui.models',
     'angularGrid',
     'angular-md5',
-    'coreBOSAPIservice'
+    'coreBOSAPIservice', 'jm.i18next'
   ])
   .constant('settings', window.settings)
-  .config(function ($routeProvider, webSocketProvider, settings) {
-    if (settings) {
-      webSocketProvider.setWebSocketURL(settings.webSocketURL);
-    }
+  .config(function ($routeProvider, $i18nextProvider, settings) {
+		$i18nextProvider.options = {
+			lng: settings.language,
+			useCookie: true,
+			useLocalStorage: false,
+			fallbackLng: 'en',
+			resGetPath: 'locales/__lng__/translation.json',
+			defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
+		};
 
     $routeProvider
       .when('/', {
@@ -80,6 +85,6 @@ angular.module('app', [
   .run(function (coreBOSAPIStatus, coreBOSWSAPI) {
     //coreBOSWSAPI.setcoreBOSUser('your corebBOS user');
     //coreBOSWSAPI.setcoreBOSKey('your coreBOS Access key');
-    coreBOSWSAPI.setURL('http://localhost/coreboswork');
-    coreBOSWSAPI.doLogin('admin','Y0M0WppcYVUz3P').then(function() {});
+    // coreBOSWSAPI.setURL('http://localhost/coreboswork');
+    // coreBOSWSAPI.doLogin('admin','Y0M0WppcYVUz3P').then(function() {});
   });
