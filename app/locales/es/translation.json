@@ -9,6 +9,7 @@
 	"coreBOS Access Key": "Clave de Acceso a coreBOS",
 	"coreBOSKeyNotSet": "Las claves de acceso a coreBOS no están definidas! Debes establecerlas aquí o en el fichero setup.js para poder utilizar la aplicación. Puedes obtener tu juego de claves en la sección de Preferencias de la aplicación.",
 	"coreBOSAPIInvalidKeys": "Las claves de acceso a coreBOS parecen ser incorrectas ya que estamos obteniendo una respuesta No Autorizado. Revisa que estén bien y prueba de nuevo. Puedes obtener tu juego de claves en la sección de Preferencias de la aplicación.",
-	"NotOnline": "Desconectado! No hay conectividad con la aplicación central."
+	"NotOnline": "Desconectado! No hay conectividad con la aplicación central.",
+	"Potentials": "Oportunidades"
 
 }

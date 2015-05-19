@@ -8,28 +8,51 @@ function(coreBOSAPIStatus, coreBOSWSAPI) {
 		replace : true,
 		templateUrl : 'widgets/mywidget/mywidget.html',
 		link : function(scope) {
-			function update() {
-				var sc = scope;
-				scope.time = new Date().toLocaleTimeString();
-				coreBOSWSAPI.setURL('http://localhost/coreBOSwork');
-				coreBOSWSAPI.doLogin('admin', 'Lvx494dom78vMTjS').then(function() {
-					coreBOSWSAPI.doQuery('select account_no,accountname from accounts limit 0,5').then(function(response) {
-						console.log(response, response.data.result.length);
-						var cols = [
-							{displayName: 'Acc Num', field: 'account_no'},
-							{displayName: 'Account', field: 'accountname'}
-						];
-						var grid = {
-							columnDefs: cols,
-							rowData: response.data.result,
-							dontUseScrolls: true
-						};
-						sc.gridOptions = grid;
-						sc.myPageItemsCount = response.data.result.length;
-					});
+			function rclick(rowdata) {
+				console.log('clicked',rowdata);
+			}
+			var totalRows = 0;
+			var ds = {
+				getRows: getRows,
+				pageSize: 5,
+				//rowCount: 0
+			};
+			var cols = [
+				{displayName: 'Acc Num', field: 'account_no'},
+				{displayName: 'Account', field: 'accountname'}
+			];
+			var grid = {
+				columnDefs: cols,
+				rowData: [],
+				enableFilter: true,
+				enableSorting: true,
+				enableColResize: true,
+				rowClicked: rclick,
+				rowSelection: 'single',
+				datasource: ds
+			};
+			function getRows(start, finish, callbackSuccess, callbackFail) {
+				coreBOSWSAPI.doQuery('select account_no,accountname from accounts limit '+start+','+(finish-start)).then(
+				function(response) {
+					callbackSuccess(response.data.result, totalRows);
+				},
+				function(response) {
+					callbackFail();
 				});
 			}
-			update();
+
+			coreBOSWSAPI.setURL('http://localhost/coreBOSwork');
+			coreBOSWSAPI.doLogin('admin', 'Lvx494dom78vMTjS').then(function() {
+				coreBOSWSAPI.doQuery('select count(*) from accounts').then(
+				function(response) {
+					grid.datasource.rowCount = response.data.result[0].count;
+					totalRows = +response.data.result[0].count;
+					scope.gridOptions = grid;
+				},
+				function(response) {
+					//ds.rowCount = 0;
+				});
+			});
 		}
 	};
 }]);

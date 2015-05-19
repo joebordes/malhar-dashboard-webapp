@@ -4,7 +4,8 @@
 
 @import "../bower_components/nvd3/nv.d3.css";
 
-@import "../bower_components/ag-grid/dist/angularGrid.css";
+@import "../bower_components/ag-grid/dist/angularGrid.min.css";
+@import "../bower_components/ag-grid/dist/theme-fresh.min.css";
 
 @import "../bower_components/malhar-angular-dashboard/dist/malhar-angular-dashboard.css";
 
